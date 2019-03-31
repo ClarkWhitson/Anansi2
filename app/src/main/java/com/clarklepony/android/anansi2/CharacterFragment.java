@@ -53,11 +53,20 @@ public class CharacterFragment extends Fragment {
     }
 
     /*
-    Here we create a CharacterHolder wired up to list_item_character.
-    The CharacterHolder expects the binding class we just implicitly created:
-    ListItemCharacterBinding
+
+     *The RecyclerView’s only responsibilities are recycling TextViews and positioning them onscreen.
+     *To get theT extViews in  the first place, it works with two classes that we have built below:
+     *an Adapter subclass and a ViewHolder subclass.
+
+     *Here we create a CharacterHolder wired up to list_item_character.
+     *The CharacterHolder expects the binding class we just implicitly created:
+     *ListItemCharacterBinding
      */
 
+
+    /* The ViewHolder's job is small. It does one thing -- it holds on to a View.
+    * A RecyclerView never creates views by themselves, they always create ViewHolders
+    * which bring their itemViews along for the ride*/
     private class CharacterHolder extends RecyclerView.ViewHolder {
         private ListItemCharacterBinding mBinding;
 
@@ -86,6 +95,24 @@ public class CharacterFragment extends Fragment {
     Next, we create an Adapter hooked up to CharacterHolder.
      */
 
+
+    /*
+    RecyclerViews do not create ViewHolders for themselves. Instead, they ask an adapter.
+    An adapter is a controller object that sits between the RecyclerView and the data set
+    that the RecyclerView should display. It's responsible for:
+
+    1:Creating the necessary ViewHolders, and
+    2:Binding ViewHolders to data from the model layer
+
+    To build an adapter, we first define a subclass of RecyclerView.Adapter. Our adapter
+    subclass will wrap the list of actors we get from ActorManager.
+
+    When the RecyclerView needs a view object to display, it will have a conversation with
+    its adapter. First, RecyclerView asks how many objects are in the list by calling the
+    adapter's getItemCount(). method. Then the RecyclerView calls the adapter's
+    OnCreateViewHolder(ViewGroup, int) method to create a new ViewHolder, which contains a
+    view to display.
+     */
     private class CharacterAdapter extends RecyclerView.Adapter<CharacterHolder> {
 
         //wiring up the character adapter with a list of characters
