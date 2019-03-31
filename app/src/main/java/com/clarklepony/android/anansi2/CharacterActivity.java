@@ -1,13 +1,18 @@
 package com.clarklepony.android.anansi2;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class CharacterActivity extends AppCompatActivity {
+
+/*
+This is the main activity that will contain our character fragment.
+ */
+
+public class CharacterActivity extends SingleFragmentActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_character);
+    protected Fragment createFragment() {
+        return CharacterFragment.newInstance();
     }
 }
