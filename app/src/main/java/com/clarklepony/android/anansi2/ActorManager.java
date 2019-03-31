@@ -45,7 +45,7 @@ public class ActorManager {
     public ActorManager(Context context) {
         // we'll generate a list off 100 actors here just to test things out
         mActors = new ArrayList<>();
-        for (int a = 0; a < 100; a++) {
+        for (int a = 1; a <= 50; a++) {
             Actor actor = new Actor();
             actor.setName("Character #" + a);
             mActors.add(actor);

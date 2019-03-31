@@ -64,7 +64,22 @@ public class CharacterFragment extends Fragment {
         private CharacterHolder(ListItemCharacterBinding binding) {
             super(binding.getRoot());
             mBinding = binding;
+            // We create a new ViewModel and Attach it to our binding class.
+            mBinding.setViewModel(new CharacterViewModel(mActorManager));
         }
+
+        //finally, we add a binding method to our CharacterHolder
+
+        public void bind(Actor actor) {
+            mBinding.getViewModel().setActor(actor);
+            mBinding.executePendingBindings();
+        }
+        /*NOTE
+        * Calling executePendingBindings() is not normally necessary.
+        * Here though, we're updating binding data inside a RecyclerView, which
+        * updates at very high speed. By calling this method, we force the layout
+        * to immediately update itself, rather than waiting a millisecond or two.
+        * This keeps the RecyclerView Looking Spiffy.*/
     }
 
     /*
@@ -90,6 +105,9 @@ public class CharacterFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(CharacterHolder holder, int position) {
+            //Finally, we finish hooking up our model by implementing onBindViewHolder()
+            Actor actor = mActors.get(position);
+            holder.bind(actor);
 
         }
 

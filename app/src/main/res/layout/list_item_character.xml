@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- This is the layout responsible for our character buttons (but they won't always be buttons) -->
-
+<!-- This is the layout responsible for our character buttons  -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/apk/res-auto">
 
+<!--This is where we integrate the view model into the layout file -->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.clarklepony.android.anansi2.CharacterViewModel"/>
+    </data>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:text="@string/character_name_label" />
+        android:text="@{viewModel.getName()}" />
+
+    <!--Within the binding mustache above, we can write simple Java expressions, including chained method calls, math, and
+anything else we want to include. We also get some “syntactic sugar” – conveniences to save you typing. For
+example, viewModel.title above is shorthand for viewModel.getTitle(). Data binding knows how to translate
+your property reference into the appropriate method call. -->
 
 </layout>

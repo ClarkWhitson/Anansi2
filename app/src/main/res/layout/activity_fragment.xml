@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--This is the main layout for the character activity -->
+<!--This is the main layout for the character activity. If I understand correctly,
+it's essentially the frame that the recyclerview will inhabit. The buttons will, in turn
+inhabit the recycler view. I'm imagining it as three nested layers.-->
+
 <!--We're going to wrap it in a layout tag to enable data binding-->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android">

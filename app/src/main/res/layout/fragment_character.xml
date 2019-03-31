@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- This layout file represents the recyclerview grid that our character buttons
+ will populate onto-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
