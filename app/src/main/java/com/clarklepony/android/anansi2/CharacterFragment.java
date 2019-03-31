@@ -12,14 +12,27 @@ import android.view.ViewGroup;
 import com.clarklepony.android.anansi2.databinding.FragmentCharacterBinding;
 import com.clarklepony.android.anansi2.databinding.ListItemCharacterBinding;
 
+import java.util.List;
+
 /*
 This class is responsible for managing our CharacterFragment.
  */
 
 public class CharacterFragment extends Fragment {
 
+    //creating an instance of ActorManager (part 1)
+    private ActorManager mActorManager;
+
     public static CharacterFragment newInstance() {
         return new CharacterFragment();
+    }
+
+    //creating an instance of ActorManager (part 2)
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mActorManager = new ActorManager(getActivity());
     }
 
 
@@ -30,8 +43,9 @@ public class CharacterFragment extends Fragment {
                 .inflate(inflater, R.layout.fragment_character, container, false);
 
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        //This is where we wire up our CharacterAdapter
-        binding.recyclerView.setAdapter(new CharacterAdapter());
+        //This is where we wire up our CharacterAdapter and pass in ActorManager's
+        //list of actors
+        binding.recyclerView.setAdapter(new CharacterAdapter(mActorManager.getActors()));
 
 
         return binding.getRoot();
@@ -58,6 +72,14 @@ public class CharacterFragment extends Fragment {
      */
 
     private class CharacterAdapter extends RecyclerView.Adapter<CharacterHolder> {
+
+        //wiring up the character adapter with a list of characters
+        private List<Actor> mActors;
+
+        public CharacterAdapter(List<Actor> actors) {
+            mActors = actors;
+        }
+
         @Override
         public CharacterHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(getActivity());
@@ -73,7 +95,7 @@ public class CharacterFragment extends Fragment {
 
         @Override
         public int getItemCount() {
-            return 0;
+            return mActors.size();
         }
     }
 }

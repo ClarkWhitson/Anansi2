@@ -9,6 +9,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        tools:text="Character name" />
+        android:text="@string/character_name_label" />
 
 </layout>

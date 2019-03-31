@@ -32,7 +32,7 @@ the given ID
 public class ActorManager {
     private static ActorManager sActorBuilder;
 
-    private List<Actor> mActors;
+    private List<Actor> mActors = new ArrayList<>();
 
 
     public static ActorManager get(Context context) {

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Anansi2</string>
+    <string name="character_name_label">Character Name</string>
+    <string name="character_info_label">Info</string>
+    <string name="character_name_prompt">Enter a name for your new character!</string>
+    <string name="character_name_clicked">You done clicked on this character!</string>
 </resources>
