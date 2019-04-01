@@ -9,13 +9,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.clarklepony.android.anansi2.CharacterViewModel"/>
+            type="com.clarklepony.android.anansi2.ListItemViewModel"/>
     </data>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:text="@{viewModel.getName()}" />
+        android:text="@{viewModel.getName()}"
+        android:onClick="@{(view) -> viewModel.onButtonClick(view)}"/>
 
     <!--Within the binding mustache above, we can write simple Java expressions, including chained method calls, math, and
 anything else we want to include. We also get some “syntactic sugar” – conveniences to save you typing. For

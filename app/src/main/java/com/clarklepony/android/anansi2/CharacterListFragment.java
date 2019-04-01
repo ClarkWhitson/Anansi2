@@ -9,22 +9,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.clarklepony.android.anansi2.databinding.FragmentCharacterBinding;
+import com.clarklepony.android.anansi2.databinding.FragmentCharacterListBinding;
 import com.clarklepony.android.anansi2.databinding.ListItemCharacterBinding;
 
 import java.util.List;
 
 /*
-This class is responsible for managing our CharacterFragment.
+This class is responsible for managing our CharacterListFragment.
  */
 
-public class CharacterFragment extends Fragment {
+public class CharacterListFragment extends Fragment {
 
     //creating an instance of ActorManager (part 1)
     private ActorManager mActorManager;
 
-    public static CharacterFragment newInstance() {
-        return new CharacterFragment();
+    public static CharacterListFragment newInstance() {
+        return new CharacterListFragment();
     }
 
     //creating an instance of ActorManager (part 2)
@@ -39,8 +39,8 @@ public class CharacterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FragmentCharacterBinding binding = DataBindingUtil
-                .inflate(inflater, R.layout.fragment_character, container, false);
+        FragmentCharacterListBinding binding = DataBindingUtil
+                .inflate(inflater, R.layout.fragment_character_list, container, false);
 
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         //This is where we wire up our CharacterAdapter and pass in ActorManager's
@@ -74,7 +74,7 @@ public class CharacterFragment extends Fragment {
             super(binding.getRoot());
             mBinding = binding;
             // We create a new ViewModel and Attach it to our binding class.
-            mBinding.setViewModel(new CharacterViewModel(mActorManager));
+            mBinding.setViewModel(new ListItemViewModel());
         }
 
         //finally, we add a binding method to our CharacterHolder

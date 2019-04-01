@@ -9,6 +9,13 @@ import java.util.UUID;
 
 public class Actor {
 
+    
+
+    public Actor(String name, UUID id) {
+        this.mId = id;
+        this.mName = name;
+    }
+
     private UUID mId;
     private String mName;
 
