@@ -30,23 +30,24 @@ the given ID
 
 //implementing ActorManager as a singleton with a private constructor and a get() method.
 public class ActorManager {
-    private static ActorManager sActorBuilder;
+    private static ActorManager sActorManager;
 
     private List<Actor> mActors = new ArrayList<>();
 
 
     public static ActorManager get(Context context) {
-        if (sActorBuilder == null) {
-            sActorBuilder = new ActorManager(context);
+        if (sActorManager == null) {
+            sActorManager = new ActorManager(context);
         }
-        return sActorBuilder;
+        return sActorManager;
     }
 
     public ActorManager(Context context) {
         // we'll generate a list off 100 actors here just to test things out
         mActors = new ArrayList<>();
         for (int a = 1; a <= 50; a++) {
-            Actor actor = new Actor("Character #" + a, UUID.randomUUID());
+            Actor actor = new Actor();
+            actor.setName("Character #" + a);
             mActors.add(actor);
         }
     }

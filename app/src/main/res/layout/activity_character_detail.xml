@@ -12,10 +12,10 @@
 
     <LinearLayout
         android:id="@+id/character_fragment_layout"
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="16dp">
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
@@ -23,17 +23,28 @@
             android:layout_height="wrap_content"
             android:text="@string/character_name_label"/>
 
+           <!-- android:text="@{viewModel.getName()}"/>
+           ^ this is what I wanted the above line to be. The idea was for this text
+           to be bound to the current instance of character in the view model, but I
+           wasn't able to figure out how to set up the intent to pass it in there in time -->
+
         <EditText
             android:id="@+id/character_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/character_name_prompt"/>
+            android:hint="@string/character_name_prompt" />
 
         <TextView
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/character_info_label"/>
+            android:text="@string/character_info_label" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/back_to_list"
+            android:onClick="@{(view) -> viewModel.onButtonClick(view)}"/>
 
     </LinearLayout>
 

@@ -19,8 +19,8 @@
         android:onClick="@{(view) -> viewModel.onButtonClick(view)}"/>
 
     <!--Within the binding mustache above, we can write simple Java expressions, including chained method calls, math, and
-anything else we want to include. We also get some “syntactic sugar” – conveniences to save you typing. For
-example, viewModel.title above is shorthand for viewModel.getTitle(). Data binding knows how to translate
+anything else we want to include. We also get some conveniences to save typing. For
+example,  for viewModel.getName() could be written in shorthand as viewModel.name. Data binding knows how to translate
 your property reference into the appropriate method call. -->
 
 </layout>

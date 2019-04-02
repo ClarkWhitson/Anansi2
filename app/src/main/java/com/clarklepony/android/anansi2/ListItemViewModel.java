@@ -10,6 +10,7 @@ type of object here called a View Model that will work with data binding.
 THE VIEW MODEL WILL TAKE ON THE RESPONSIBILITY OF DECIDING HOW THINGS ARE DISPLAYED
  */
 
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
@@ -17,16 +18,20 @@ import android.nfc.Tag;
 import android.util.Log;
 import android.view.View;
 
+import java.util.UUID;
+
 public class ListItemViewModel extends BaseObservable {
-    private final String TAG = "CharcterDetailActivity";
+
+    private final String TAG = "CharacterDetailActivity";
 
     /*start by giving it two properties: An Actor to use, and an ActorManager
     to display that Actor*/
 
     private Actor mActor;
+    private ActorManager mActorManager;
 
 
-    public Actor getActor(){
+    public Actor getActor() {
         return mActor;
     }
 
@@ -44,16 +49,18 @@ public class ListItemViewModel extends BaseObservable {
         return mActor.getName();
     }
 
-    public void onButtonClick(View v) {
-        Intent intent = new Intent(v.getContext(), CharacterDetailActivity.class);
+
+    /*implement an onclick listener to transition to the character detail activity when a character
+    I struggled a lot to get this to correctly take a UUID and display the *correct* instance of character
+    but in the end I had to move on because of time constraints.
+    */
+    public void onButtonClick(View view) {
+        Intent intent = new Intent(view.getContext(), CharacterDetailActivity.class);
         intent.putExtra("actorID", mActor.getId().toString());
-        v.getContext().startActivity(intent);
-      //  Log.i(TAG,mActor.getId());
+        view.getContext().startActivity(intent);
+        Log.i(TAG, "The actor id is " + mActor.getId());
     }
 
 }
 
-/*
-Intent intent = new Intent(CharacterListActivity.this, CharacterDetailActivity.class);
-startActivity(intent);
- */
+

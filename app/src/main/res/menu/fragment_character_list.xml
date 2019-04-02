@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- this layout is responsible for our toolbar's menu -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/new_actor"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/new_actor"
+        app:showAsAction="ifRoom|withText"/>
+
+    <!-- this attribute determines if the item will show up in the actual toolbar
+    or the overflow menu. I piped in the two values to say that the icon and text will
+    show up in the toolbar as long as there is room.-->
+
+</menu>

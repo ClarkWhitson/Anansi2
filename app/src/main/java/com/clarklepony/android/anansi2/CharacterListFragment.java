@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -13,6 +15,7 @@ import com.clarklepony.android.anansi2.databinding.FragmentCharacterListBinding;
 import com.clarklepony.android.anansi2.databinding.ListItemCharacterBinding;
 
 import java.util.List;
+import java.util.UUID;
 
 /*
 This class is responsible for managing our CharacterListFragment.
@@ -20,20 +23,36 @@ This class is responsible for managing our CharacterListFragment.
 
 public class CharacterListFragment extends Fragment {
 
-    //creating an instance of ActorManager (part 1)
+    //creating an instance of ActorManager)
     private ActorManager mActorManager;
+    private Actor mActor;
 
-    public static CharacterListFragment newInstance() {
-        return new CharacterListFragment();
-    }
+
 
     //creating an instance of ActorManager (part 2)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+
+        //Trying to get the UUID to pass into the other activity
+        /*UUID actorId = (UUID) getActivity().getIntent()
+        .getSerializableExtra(CharacterListActivity.EXTRA_ACTOR_ID);
+        mActor = ActorManager.get(getActivity().getActor(actorId));*/
 
         mActorManager = new ActorManager(getActivity());
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_character_list, menu);
+    }
+
+    public static CharacterListFragment newInstance() {
+        return new CharacterListFragment();
+    }
+
 
 
     @Override
@@ -141,6 +160,10 @@ public class CharacterListFragment extends Fragment {
         @Override
         public int getItemCount() {
             return mActors.size();
+        }
+
+        public UUID getId(){
+            return mActor.getId();
         }
     }
 }
