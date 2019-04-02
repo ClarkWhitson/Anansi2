@@ -2,11 +2,8 @@ package com.clarklepony.android.anansi2;
 
 
 /*
-The guiding principle behind any architecture is the Single Responsibility Principle.
-It says that every class we make should have exactly one responsibility.
-Instead of complicating the responsibility of our sound class, we're introducing a new
-type of object here called a View Model that will work with data binding.
 
+This is the ViewModel for our individual character list items
 THE VIEW MODEL WILL TAKE ON THE RESPONSIBILITY OF DECIDING HOW THINGS ARE DISPLAYED
  */
 
@@ -42,7 +39,7 @@ public class ListItemViewModel extends BaseObservable {
 
     /* The Properties above are the interface our adapter will use. For the
      * layout file, we want to add an additional method to ge the title that
-     * the button should display. We'll add that below
+     * the button should display.
      */
     @Bindable
     public String getName() {
@@ -50,9 +47,8 @@ public class ListItemViewModel extends BaseObservable {
     }
 
 
-    /*implement an onclick listener to transition to the character detail activity when a character
-    I struggled a lot to get this to correctly take a UUID and display the *correct* instance of character
-    but in the end I had to move on because of time constraints.
+    /*implement an onclick listener to transition to the character detail
+    activity when a character is selected.
     */
     public void onButtonClick(View view) {
         Intent intent = new Intent(view.getContext(), CharacterDetailActivity.class);

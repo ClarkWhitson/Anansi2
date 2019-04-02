@@ -12,8 +12,8 @@ import java.util.List;
 
 /*
 This is our app's third activity, allowing to swipe between different characters on the fly.
-Due to time constraints, I wasn't able to figure out how to implement it properly, leveraging
-MVVM architecture
+Due to time constraints, I wasn't able to figure out how to implement it properly while leveraging
+MVVM architecture.
  */
 
 public class CharacterPagerActivity extends AppCompatActivity {

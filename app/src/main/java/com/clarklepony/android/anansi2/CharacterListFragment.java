@@ -23,22 +23,17 @@ This class is responsible for managing our CharacterListFragment.
 
 public class CharacterListFragment extends Fragment {
 
-    //creating an instance of ActorManager)
     private ActorManager mActorManager;
     private Actor mActor;
 
 
 
-    //creating an instance of ActorManager (part 2)
+    //creating an instance of ActorManager
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
-        //Trying to get the UUID to pass into the other activity
-        /*UUID actorId = (UUID) getActivity().getIntent()
-        .getSerializableExtra(CharacterListActivity.EXTRA_ACTOR_ID);
-        mActor = ActorManager.get(getActivity().getActor(actorId));*/
 
         mActorManager = new ActorManager(getActivity());
     }
@@ -83,9 +78,9 @@ public class CharacterListFragment extends Fragment {
      */
 
 
-    /* The ViewHolder's job is small. It does one thing -- it holds on to a View.
+    /* The ViewHolder's purpose is to hold on to a view.
     * A RecyclerView never creates views by themselves, they always create ViewHolders
-    * which bring their itemViews along for the ride*/
+    * which contain their ViewItems*/
     private class CharacterHolder extends RecyclerView.ViewHolder {
         private ListItemCharacterBinding mBinding;
 
@@ -102,12 +97,7 @@ public class CharacterListFragment extends Fragment {
             mBinding.getViewModel().setActor(actor);
             mBinding.executePendingBindings();
         }
-        /*NOTE
-        * Calling executePendingBindings() is not normally necessary.
-        * Here though, we're updating binding data inside a RecyclerView, which
-        * updates at very high speed. By calling this method, we force the layout
-        * to immediately update itself, rather than waiting a millisecond or two.
-        * This keeps the RecyclerView Looking Spiffy.*/
+
     }
 
     /*
