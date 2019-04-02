@@ -6,11 +6,14 @@ inhabit the recycler view. I'm imagining it as three nested layers.-->
 
 <!--We're going to wrap it in a layout tag to enable data binding-->
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <fragment android:name="com.clarklepony.android.anansi2.CharacterDetailFragment"
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</layout>
+</LinearLayout>

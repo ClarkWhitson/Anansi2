@@ -11,7 +11,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.clarklepony.android.anansi2.databinding.FragmentCharacterListBinding;
+import com.clarklepony.android.anansi2.databinding.CharacterListFragmentBinding;
 import com.clarklepony.android.anansi2.databinding.ListItemCharacterBinding;
 
 import java.util.List;
@@ -53,8 +53,8 @@ public class CharacterListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FragmentCharacterListBinding binding = DataBindingUtil
-                .inflate(inflater, R.layout.fragment_character_list, container, false);
+        CharacterListFragmentBinding binding = DataBindingUtil
+                .inflate(inflater, R.layout.character_list_fragment, container, false);
 
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         //This is where we wire up our CharacterAdapter and pass in ActorManager's

@@ -1,6 +1,5 @@
 package com.clarklepony.android.anansi2;
 
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.clarklepony.android.anansi2.databinding.ActivityCharacterDetailBinding;
+import com.clarklepony.android.anansi2.databinding.CharacterDetailFragmentBinding;
 
 /*
 This is the fragment responsible for managing our character list activity.
@@ -39,8 +38,8 @@ public class CharacterDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ActivityCharacterDetailBinding binding = DataBindingUtil
-                .inflate(inflater, R.layout.activity_character_detail,
+        CharacterDetailFragmentBinding binding = DataBindingUtil
+                .inflate(inflater, R.layout.character_detail_fragment,
                         container, false);
 
         return binding.getRoot();

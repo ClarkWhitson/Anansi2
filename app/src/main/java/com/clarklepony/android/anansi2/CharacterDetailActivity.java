@@ -10,24 +10,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.clarklepony.android.anansi2.databinding.ActivityCharacterDetailBinding;
+
 
 /*
 This is the main code for our character detail view activity. It creates a new fragment.
  */
 
-public class CharacterDetailActivity extends SingleFragmentActivity {
+public class CharacterDetailActivity extends AppCompatActivity {
 
     private final String TAG = "CharacterDetailActivity";
 
     @Override
-    protected Fragment createFragment() {
-        return CharacterDetailFragment.newInstance();
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.character_detail_activity);
 
         Intent intent = this.getIntent();
         String actorId = intent.getStringExtra("actorID");
