@@ -1,11 +1,10 @@
 package com.clarklepony.android.anansi2;
 
 /*
-This class is responsible for keeping track of characters' names, as well
-as any other information relating to a given character.
+This class is responsible for keeping track of characters' name & UUID, as well
+as any other information relating to a given character that I might decide to add later.
  */
 
-import android.util.Log;
 
 import java.util.UUID;
 

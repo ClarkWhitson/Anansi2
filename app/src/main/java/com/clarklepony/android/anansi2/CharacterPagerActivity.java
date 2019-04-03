@@ -36,7 +36,6 @@ public class CharacterPagerActivity extends AppCompatActivity {
             @Override
             public Fragment getItem(int position) {
                 Actor actor = mActors.get(position);
-                // couldn't figure out how to make tis work with MVVM architecture in time
                 return null;
             }
 

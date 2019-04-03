@@ -21,17 +21,11 @@ public class CharacterDetailFragment extends Fragment {
     }
 
     @Override
-    // @Nullable means that the bundle could be empty
+
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
     }
-    
-    //   String actorId = this.getIntent().getStringExtra("actorID");
-    //   Log.i(TAG, "The actor id is " + actorId);
-    //   private final String TAG = "CharacterDetailActivity";
-
 
     // bind it to the corresponding layout file
 
@@ -45,8 +39,5 @@ public class CharacterDetailFragment extends Fragment {
         return binding.getRoot();
     }
 
-    /*@Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-    }*/
+
 }

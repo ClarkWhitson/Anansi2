@@ -2,8 +2,7 @@
 
 <!-- This is the layout responsible for our character buttons  -->
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
 <!--This is where we integrate the view model into the layout file -->
     <data>
@@ -17,10 +16,5 @@
         android:layout_height="120dp"
         android:text="@{viewModel.getName()}"
         android:onClick="@{(view) -> viewModel.onButtonClick(view)}"/>
-
-    <!--Within the binding mustache above, we can write simple Java expressions, including chained method calls, math, and
-anything else we want to include. We also get some conveniences to save typing. For
-example,  for viewModel.getName() could be written in shorthand as viewModel.name. Data binding knows how to translate
-your property reference into the appropriate method call. -->
 
 </layout>
